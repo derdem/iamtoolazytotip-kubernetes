@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iamtoolazytotip-api-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iamtoolazytotip-api-server
+  template:
+    metadata:
+      labels:
+        app: iamtoolazytotip-api-server
+    spec:
+      containers:
+        - name: iamtoolazytotip-api-server
+          image: iamtoolazytotip-api-prod
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
